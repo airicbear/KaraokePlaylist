@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/karaoke-songs.css"/>
+    <title>Karaoke Playlist</title>
+</head>
+<body>
+    <div id="karaoke_playlist">
+        <h1>Karaoke Playlist</h1>
+        <ul>
+            <li th:each="song:${karaokeSongs}">
+                <a th:href="${song.url}" target="_blank">
+                    <span th:text="${song.artist}"></span>
+                     -
+                    <span th:text="${song.title}"></span>
+                </a>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

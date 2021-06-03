@@ -1,15 +1,13 @@
 package com.example.karaokeplaylist;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Table(name = "KARAOKE_SONG")
 @Entity
 public class KaraokeSong {
     @Column(name = "ID", nullable = false)
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     @Column(name = "TITLE")

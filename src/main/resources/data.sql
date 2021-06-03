@@ -1,0 +1,17 @@
+-- drop table if exists KARAOKE_SONG;
+--
+-- create table KARAOKE_SONG
+-- (
+--     ID     INT auto_increment
+--         primary key,
+--     TITLE  VARCHAR(255) not null,
+--     ARTIST VARCHAR(255) not null,
+--     URL    VARCHAR(255) not null
+-- );
+--
+-- insert into KARAOKE_SONG values (1, 'Roar', 'Katy Perry', 'https://youtu.be/hMF4h0gYN-0');
+-- insert into KARAOKE_SONG values (2, 'Circles', 'Post Malone', 'https://youtu.be/hlk6z9nJxGg');
+-- insert into KARAOKE_SONG values (3, 'Sunflower', 'Post Malone, Swae Lee', 'https://youtu.be/awxvtj-0JKw');
+-- insert into KARAOKE_SONG values (4, 'Girls Like You', 'Maroon 5 ft. Cardi B', 'https://youtu.be/aNknycqtsxA');
+-- insert into KARAOKE_SONG values (5, 'Juicy', 'Doja Cat', 'https://youtu.be/kfFe_lj9uIU');
+;

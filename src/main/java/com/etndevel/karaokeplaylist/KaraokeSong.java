@@ -7,7 +7,8 @@ import javax.persistence.*;
 public class KaraokeSong {
     @Column(name = "ID", nullable = false)
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "karaoke_song_seq_gen")
+    @SequenceGenerator(name = "karaoke_song_seq_gen", sequenceName = "karaoke_song_seq", allocationSize = 1)
     private Long id;
 
     @Column(name = "TITLE")
@@ -22,8 +23,7 @@ public class KaraokeSong {
     public KaraokeSong() {
     }
 
-    public KaraokeSong(Long id, String title, String artist, String url) {
-        this.id = id;
+    public KaraokeSong(String title, String artist, String url) {
         this.title = title;
         this.url = url;
         this.artist = artist;

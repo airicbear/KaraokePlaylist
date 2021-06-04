@@ -17,4 +17,9 @@ public class KaraokeSongService {
     public KaraokeSong getById(long id) {
         return karaokeSongRepository.findById(id).orElse(new KaraokeSong());
     }
+
+    public KaraokeSong saveOrUpdate(KaraokeSong karaokeSong) {
+        karaokeSongRepository.save(karaokeSong);
+        return karaokeSong;
+    }
 }

@@ -20,4 +20,9 @@ public class KaraokeSongRestController {
     public KaraokeSong updateKaraokeSong(@RequestBody KaraokeSong karaokeSong) {
         return karaokeSongService.saveOrUpdate(karaokeSong);
     }
+
+    @DeleteMapping("/playlist/{id}")
+    public KaraokeSong deleteKaraokeSongById(@PathVariable long id) {
+        return karaokeSongService.deleteById(id);
+    }
 }

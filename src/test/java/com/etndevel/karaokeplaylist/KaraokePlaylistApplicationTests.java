@@ -1,4 +1,4 @@
-package com.example.karaokeplaylist;
+package com.etndevel.karaokeplaylist;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

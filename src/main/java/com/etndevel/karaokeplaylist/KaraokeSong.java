@@ -1,4 +1,4 @@
-package com.example.karaokeplaylist;
+package com.etndevel.karaokeplaylist;
 
 import javax.persistence.*;
 
@@ -29,20 +29,12 @@ public class KaraokeSong {
         this.artist = artist;
     }
 
-    public String getUrl() {
-        return url;
+    public Long getId() {
+        return id;
     }
 
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
-    public String getArtist() {
-        return artist;
-    }
-
-    public void setArtist(String artist) {
-        this.artist = artist;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -53,12 +45,20 @@ public class KaraokeSong {
         this.title = title;
     }
 
-    public Long getId() {
-        return id;
+    public String getArtist() {
+        return artist;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setArtist(String artist) {
+        this.artist = artist;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     @Override
@@ -66,8 +66,8 @@ public class KaraokeSong {
         return "KaraokeSong{" +
                 "id=" + id +
                 ", title='" + title + '\'' +
-                ", url='" + url + '\'' +
                 ", artist='" + artist + '\'' +
+                ", url='" + url + '\'' +
                 '}';
     }
 }

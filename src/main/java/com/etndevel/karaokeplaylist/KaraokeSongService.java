@@ -1,4 +1,4 @@
-package com.example.karaokeplaylist;
+package com.etndevel.karaokeplaylist;
 
 import org.springframework.stereotype.Service;
 

@@ -1,0 +1,1 @@
+web: java -jar target/KaraokePlaylist-0.0.1-SNAPSHOT.jar

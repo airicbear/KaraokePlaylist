@@ -17,6 +17,10 @@ li {
     margin: 0;
 }
 
-#karaoke_playlist, #add_song {
+.song-listing * {
+    display: inline-flex;
+}
+
+#karaoke-playlist, #add-song {
     padding: 48px;
 }

@@ -18,8 +18,7 @@ public class KaraokeSongController {
     public String getKaraokeSongList(Model model) {
         model.addAttribute("karaokeSongs", karaokeSongService.getKaraokeSongList());
 
-        KaraokeSong karaokeSong = new KaraokeSong();
-        model.addAttribute("karaokeSong", karaokeSong);
+        model.addAttribute("karaokeSong", new KaraokeSong());
 
         return "karaoke-songs";
     }
@@ -30,6 +29,16 @@ public class KaraokeSongController {
 
         model.addAttribute("karaokeSongs", karaokeSongService.getKaraokeSongList());
         model.addAttribute("karaokeSong", karaokeSong);
+
+        return "karaoke-songs";
+    }
+
+    @PostMapping("/delete/{id}")
+    public String deleteKaraokeSong(@PathVariable long id, Model model) {
+        karaokeSongService.deleteById(id);
+
+        model.addAttribute("karaokeSongs", karaokeSongService.getKaraokeSongList());
+        model.addAttribute("karaokeSong", new KaraokeSong());
 
         return "karaoke-songs";
     }

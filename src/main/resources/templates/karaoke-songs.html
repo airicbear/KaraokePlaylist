@@ -16,18 +16,26 @@
                     <span th:text="${song.title}"></span>
                 </a>
                 <form action="#" th:action="@{/delete/{id}(id=${song.id})}" method="POST">
-                    <input type="submit" th:id="'delete-' + ${song.id}" value="Delete">
+                    <input type="submit" th:id="'delete-' + ${song.id}" value="Delete" class="warning">
                 </form>
             </li>
         </ul>
     </div>
     <div id="add-song">
         <h1>Add song</h1>
-        <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST">
-            <label for="song-title">Title:</label> <input type="text" id="song-title" th:field="*{title}">
-            <label for="song-artist">Artist:</label> <input type="text" id="song-artist" th:field="*{artist}">
-            <label for="song-url">URL:</label> <input type="text" id="song-url" th:field="*{url}">
-            <input type="submit" name="submit-song" value="Add Song" />
+        <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST" class="form-container">
+            <li class="form-row">
+                <label for="song-title">Title</label> <input type="text" id="song-title" th:field="*{title}"><br>
+            </li>
+            <li class="form-row">
+                <label for="song-artist">Artist</label> <input type="text" id="song-artist" th:field="*{artist}"><br>
+            </li>
+            <li class="form-row">
+                <label for="song-url">URL</label> <input type="text" id="song-url" th:field="*{url}"><br>
+            </li>
+            <li class="form-row">
+                <input type="submit" name="submit-song" value="Add Song" />
+            </li>
         </form>
     </div>
 </body>

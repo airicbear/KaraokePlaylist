@@ -18,6 +18,19 @@ public class KaraokeSongController {
     public String getKaraokeSongList(Model model) {
         model.addAttribute("karaokeSongs", karaokeSongService.getKaraokeSongList());
 
+        KaraokeSong karaokeSong = new KaraokeSong();
+        model.addAttribute("karaokeSong", karaokeSong);
+
+        return "karaoke-songs";
+    }
+
+    @PostMapping("/add")
+    public String addKaraokeSong(@ModelAttribute KaraokeSong karaokeSong, Model model) {
+        karaokeSongService.saveOrUpdate(karaokeSong);
+
+        model.addAttribute("karaokeSongs", karaokeSongService.getKaraokeSongList());
+        model.addAttribute("karaokeSong", karaokeSong);
+
         return "karaoke-songs";
     }
 }

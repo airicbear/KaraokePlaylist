@@ -17,6 +17,6 @@ li {
     margin: 0;
 }
 
-#karaoke_playlist {
+#karaoke_playlist, #add_song {
     padding: 48px;
 }

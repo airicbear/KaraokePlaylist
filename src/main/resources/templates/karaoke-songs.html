@@ -1,44 +1,55 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/karaoke-songs.css"/>
+    <link rel="stylesheet" href="/karaoke-songs.css" />
     <title>Karaoke Playlist</title>
 </head>
+
 <body>
-    <div id="karaoke-playlist">
-        <h1>Karaoke Playlist</h1>
-        <ul>
-            <li th:each="song:${karaokeSongs}" class="song-listing">
-                <a th:href="${song.url}" target="_blank">
-                    <span th:text="${song.artist}"></span>
-                     -
-                    <span th:text="${song.title}"></span>
-                </a>
-                <form action="#" th:action="@{/delete/{id}(id=${song.id})}" method="POST">
-                    <input type="submit" th:id="'delete-' + ${song.id}" value="Delete" class="warning">
-                </form>
-            </li>
-        </ul>
-    </div>
-    <div id="add-song">
-        <h1>Add song</h1>
-        <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST" class="form-container">
-            <div class="form-row">
-                <label for="song-title">Title</label> <input type="text" id="song-title" th:field="*{title}"><br>
-            </div>
-            <div class="form-row">
-                <label for="song-artist">Artist</label> <input type="text" id="song-artist" th:field="*{artist}"><br>
-            </div>
-            <div class="form-row">
-                <label for="song-url">URL</label> <input type="text" id="song-url" th:field="*{url}"><br>
-            </div>
-            <div class="form-row">
-                <input type="submit" name="submit-song" value="Add Song" />
-            </div>
-        </form>
-    </div>
+    <header>
+        <div id="header-content">
+            <h1>Karaoke 🎤</h1>
+        </div>
+    </header>
+    <main>
+        <div id="karaoke-playlist">
+            <h1>Playlist</h1>
+            <ul>
+                <li th:each="song:${karaokeSongs}" class="song-listing">
+                    <a th:href="${song.url}" target="_blank">
+                        <span th:text="${song.artist}"></span>
+                        -
+                        <span th:text="${song.title}"></span>
+                    </a>
+                    <form action="#" th:action="@{/delete/{id}(id=${song.id})}" method="POST">
+                        <input type="submit" th:id="'delete-' + ${song.id}" value="Delete" class="warning">
+                    </form>
+                </li>
+            </ul>
+        </div>
+        <div id="add-song">
+            <h1>Add song</h1>
+            <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST" class="form-container">
+                <div class="form-row">
+                    <label for="song-title">Title</label> <input type="text" id="song-title" th:field="*{title}"><br>
+                </div>
+                <div class="form-row">
+                    <label for="song-artist">Artist</label> <input type="text" id="song-artist"
+                        th:field="*{artist}"><br>
+                </div>
+                <div class="form-row">
+                    <label for="song-url">URL</label> <input type="text" id="song-url" th:field="*{url}"><br>
+                </div>
+                <div class="form-row">
+                    <input type="submit" name="submit-song" value="Add Song" />
+                </div>
+            </form>
+        </div>
+    </main>
 </body>
+
 </html>

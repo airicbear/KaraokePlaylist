@@ -30,7 +30,7 @@ public class KaraokeSongController {
         model.addAttribute("karaokeSongs", karaokeSongService.getKaraokeSongList());
         model.addAttribute("karaokeSong", karaokeSong);
 
-        return "karaoke-songs";
+        return "redirect:/";
     }
 
     @PostMapping("/delete/{id}")
@@ -40,6 +40,6 @@ public class KaraokeSongController {
         model.addAttribute("karaokeSongs", karaokeSongService.getKaraokeSongList());
         model.addAttribute("karaokeSong", new KaraokeSong());
 
-        return "karaoke-songs";
+        return "redirect:/";
     }
 }

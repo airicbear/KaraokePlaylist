@@ -17,7 +17,28 @@
     </header>
     <main>
         <div id="karaoke-playlist" class="card">
-            <h1>Playlist</h1>
+            <header>
+                <h1>Playlist</h1>
+                <div class="popup">
+                    <button id="add-song-button" onclick="toggleAddSongPopup()">﹢</button>
+                    <div id="add-song" class="popup-dialog">
+                        <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST">
+                            <div class="form-row">
+                                <input type="text" id="song-title" th:field="*{title}" placeholder="Title" required><br>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" id="song-artist" th:field="*{artist}" placeholder="Artist" required><br>
+                            </div>
+                            <div class="form-row">
+                                <input type="text" id="song-url" th:field="*{url}" placeholder="URL" required><br>
+                            </div>
+                            <div class="form-row">
+                                <input type="submit" name="submit-song" value="Add" />
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </header>
             <ul>
                 <li th:each="song:${karaokeSongs}" class="song-listing">
                     <a th:href="${song.url}" target="_blank">
@@ -30,26 +51,18 @@
                 </li>
             </ul>
         </div>
-        <div id="add-song" class="card">
-            <h1>Add song</h1>
-            <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST">
-                <div class="form-row">
-                    <label for="song-title">Title</label> <input type="text" id="song-title" th:field="*{title}"><br>
-                </div>
-                <div class="form-row">
-                    <label for="song-artist">Artist</label> <input type="text" id="song-artist"
-                        th:field="*{artist}"><br>
-                </div>
-                <div class="form-row">
-                    <label for="song-url">URL</label> <input type="text" id="song-url" th:field="*{url}"><br>
-                </div>
-                <div class="form-row">
-                    <label></label>
-                    <input type="submit" name="submit-song" value="Add" />
-                </div>
-            </form>
-        </div>
     </main>
+    <footer>
+        <p>
+            Copyright &copy; 2021 Eric Nguyen
+        </p>
+    </footer>
+    <script>
+        function toggleAddSongPopup() {
+            let popup = document.getElementById("add-song");
+            popup.classList.toggle("show");
+        }
+    </script>
 </body>
 
 </html>

@@ -16,24 +16,23 @@
         </div>
     </header>
     <main>
-        <div id="karaoke-playlist">
+        <div id="karaoke-playlist" class="card">
             <h1>Playlist</h1>
             <ul>
                 <li th:each="song:${karaokeSongs}" class="song-listing">
                     <a th:href="${song.url}" target="_blank">
-                        <span th:text="${song.artist}"></span>
-                        -
-                        <span th:text="${song.title}"></span>
+                        <p class="song-title" th:text="${song.title}"></p>
+                        <p class="song-artist" th:text="${song.artist}"></p>
                     </a>
                     <form action="#" th:action="@{/delete/{id}(id=${song.id})}" method="POST">
-                        <input type="submit" th:id="'delete-' + ${song.id}" value="Delete" class="warning">
+                        <input type="submit" th:id="'delete-' + ${song.id}" value="Delete" class="delete warning">
                     </form>
                 </li>
             </ul>
         </div>
-        <div id="add-song">
+        <div id="add-song" class="card">
             <h1>Add song</h1>
-            <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST" class="form-container">
+            <form action="#" th:action="@{/add/}" th:object="${karaokeSong}" method="POST">
                 <div class="form-row">
                     <label for="song-title">Title</label> <input type="text" id="song-title" th:field="*{title}"><br>
                 </div>
@@ -45,7 +44,8 @@
                     <label for="song-url">URL</label> <input type="text" id="song-url" th:field="*{url}"><br>
                 </div>
                 <div class="form-row">
-                    <input type="submit" name="submit-song" value="Add Song" />
+                    <label></label>
+                    <input type="submit" name="submit-song" value="Add" />
                 </div>
             </form>
         </div>

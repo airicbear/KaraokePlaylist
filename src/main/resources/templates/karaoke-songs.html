@@ -42,7 +42,7 @@
             </header>
             <ul>
                 <li th:each="song:${karaokeSongs}" class="song-listing">
-                    <a th:href="${song.url}" target="_blank">
+                    <a th:href="${song.url}" target="_blank" rel="noopener">
                         <p class="song-title" th:text="${song.title}"></p>
                         <p class="song-artist" th:text="${song.artist}"></p>
                     </a>
